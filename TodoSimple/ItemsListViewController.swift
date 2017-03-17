@@ -68,7 +68,7 @@ class ItemsListViewController: ViewController, UITableViewDelegate, UITableViewD
         let cell = tableView.dequeueReusableCell(withIdentifier: self.cellInfo.identifier, for: indexPath)
             as! ItemListCell
         if let item: TodoItemAutoWrite = self.datasource.item(at: indexPath.row) {
-            self.prepare(cell: cell, with: item)
+            self.prepare(cell: cell, with: item, animated: false)
         }
         return cell
     }
@@ -127,7 +127,7 @@ class ItemsListViewController: ViewController, UITableViewDelegate, UITableViewD
             changes.updatedItems.forEach {
                 let indexPath = IndexPath(row: $0.index, section: 0)
                 if let cell = strongSelf.tableView.cellForRow(at: indexPath) as? ItemListCell {
-                    strongSelf.prepare(cell: cell, with: $0.item)
+                    strongSelf.prepare(cell: cell, with: $0.item, animated: true)
                 }
             }
             strongSelf.tableView.endUpdates()
@@ -145,13 +145,13 @@ class ItemsListViewController: ViewController, UITableViewDelegate, UITableViewD
         return formatter.string(from: date)
     }
     
-    private func prepare(cell: ItemListCell, with item: TodoItemAutoWrite) {
-        cell.completed = item.completed
-        var item = item
+    private func prepare(cell: ItemListCell, with item: TodoItemAutoWrite, animated: Bool) {
+        cell.setCompleted(item.completed, animated: animated)
         cell.setNameString(item.name)
         cell.setDateString(self.dateString(from: item.date))
         cell.setPriority(item.priority)
 
+        var item = item
         cell.statusChanged = { item.completed = $0 }
         cell.nameChanged = { item.name = $0 }
     }

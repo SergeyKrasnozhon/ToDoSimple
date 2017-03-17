@@ -18,8 +18,11 @@ class ItemListCell: UITableViewCell, UITextFieldDelegate {
     var nameChanged: ((String) -> ())?
     
     var completed: Bool {
-        get { return self.completeSwitch.isOn }
-        set { self.completeSwitch.setOn(newValue, animated: true) }
+        return self.completeSwitch.isOn
+    }
+    
+    func setCompleted(_ value: Bool, animated: Bool) {
+        self.completeSwitch.setOn(value, animated: animated)
     }
     
     func setPriority(_ value: Int) {
