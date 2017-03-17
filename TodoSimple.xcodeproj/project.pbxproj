@@ -30,6 +30,7 @@
 		A55B4CBF1E770A250080002A /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A55B4CB51E770A030080002A /* RealmSwift.framework */; };
 		A55B4CC01E770A250080002A /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A55B4CB51E770A030080002A /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A55B4CC41E770A7D0080002A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55B4CC31E770A7D0080002A /* ViewController.swift */; };
+		A5E7B6B41E7C061E006A8C70 /* ItemEditCellsCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E7B6B31E7C061E006A8C70 /* ItemEditCellsCreator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -71,6 +72,7 @@
 		A55B4CB41E770A030080002A /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		A55B4CB51E770A030080002A /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		A55B4CC31E770A7D0080002A /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A5E7B6B31E7C061E006A8C70 /* ItemEditCellsCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemEditCellsCreator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,10 +134,10 @@
 		A55B4CC51E770B5C0080002A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				A5E7B6B21E7C060D006A8C70 /* ItemEdit */,
 				A55B4C951E7709D00080002A /* TodoItemsDatasource.swift */,
 				A55B4CC31E770A7D0080002A /* ViewController.swift */,
 				A55B4C961E7709D00080002A /* ItemsListViewController.swift */,
-				A55B4C9E1E7709D00080002A /* ItemEditViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -177,6 +179,15 @@
 				A55B4CA11E7709D00080002A /* DismissSegue.swift */,
 			);
 			name = "UI Common";
+			sourceTree = "<group>";
+		};
+		A5E7B6B21E7C060D006A8C70 /* ItemEdit */ = {
+			isa = PBXGroup;
+			children = (
+				A55B4C9E1E7709D00080002A /* ItemEditViewController.swift */,
+				A5E7B6B31E7C061E006A8C70 /* ItemEditCellsCreator.swift */,
+			);
+			name = ItemEdit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -276,6 +287,7 @@
 				A55B4CA71E7709D00080002A /* Logger.swift in Sources */,
 				A55B4C841E77092A0080002A /* AppDelegate.swift in Sources */,
 				A55B4CA41E7709D00080002A /* TodoItemsDatasource.swift in Sources */,
+				A5E7B6B41E7C061E006A8C70 /* ItemEditCellsCreator.swift in Sources */,
 				A55B4CAC1E7709D00080002A /* KeyboardHandler.swift in Sources */,
 				A55B4CA51E7709D00080002A /* ItemsListViewController.swift in Sources */,
 				A55B4CC41E770A7D0080002A /* ViewController.swift in Sources */,
