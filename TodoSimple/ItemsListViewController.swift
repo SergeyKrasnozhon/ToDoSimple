@@ -28,10 +28,7 @@ class ItemsListViewController: ViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         self.updateCompletedButton()
-        self.datasource.needUseCompleted = self.needShowCompleted
-        self.datasource.didChangeBlock = {
-            self.tableView?.reloadSections([0], with: .automatic)
-        }
+        self.setupDatasource()
         self.keyboardHandler = KeyboardHandler(rootView: self.view) { [weak self] in
             let additionalInset: CGFloat = ($0 == 0) ? 0 : 2
             self?.tableView.contentInset = UIEdgeInsets(top: -($0 + additionalInset), left: 0, bottom: 0, right: 0)
@@ -110,6 +107,32 @@ class ItemsListViewController: ViewController, UITableViewDelegate, UITableViewD
     }
     
     // MARK: Service
+    private func setupDatasource() {
+        self.datasource.needUseCompleted = self.needShowCompleted
+        self.datasource.didUpdate = { [weak self] in
+            self?.tableView.reloadSections([0], with: .automatic)
+        }
+        self.datasource.didChange = self.createUpdatingBlock()
+    }
+    
+    private func createUpdatingBlock() -> (TodoItemsDatasourceChanges) -> Void {
+        return { [weak self] (changes: TodoItemsDatasourceChanges) in
+            guard let strongSelf = self else { return }
+            strongSelf.tableView.beginUpdates()
+            strongSelf.tableView.insertRows(at: changes.insertions.map { IndexPath(row: $0, section: 0) },
+                                 with: .automatic)
+            strongSelf.tableView.deleteRows(at: changes.deletions.map { IndexPath(row: $0, section: 0) },
+                                 with: .automatic)
+            changes.updatedItems.forEach {
+                let indexPath = IndexPath(row: $0.index, section: 0)
+                if let cell = strongSelf.tableView.cellForRow(at: indexPath) as? ItemListCell {
+                    strongSelf.prepare(cell: cell, with: $0.item)
+                }
+            }
+            strongSelf.tableView.endUpdates()
+        }
+    }
+    
     private func updateCompletedButton() {
         let title = self.needShowCompleted ? "Hide Completed" : "Show Completed"
         self.completedFilterButton.setTitle(title, for: .normal)
@@ -133,7 +156,6 @@ class ItemsListViewController: ViewController, UITableViewDelegate, UITableViewD
     }
     
     private func presentEdit(item: TodoItemInmemory) {
-        //showItemEditVC
         self.performSegue(withIdentifier: "showItemEditVC", sender: self) { (segue) in
             guard let viewController = segue.destination as? ItemEditViewController else {
                 Logger().log(message: "Wrong viewController type for: \(segue.identifier)")

@@ -9,31 +9,31 @@
 import Foundation
 import RealmSwift
 
+struct TodoItemsDatasourceChanges {
+    let updatedItems: [(item: TodoItemAutoWrite, index: Int)]
+    let deletions: [Int]
+    let insertions: [Int]
+}
+
 struct TodoItemsDatasource {
     private var notificationToken: NotificationToken?
     private let realm = RealmManager().realm()
     private let writer: PersistantWriter
 
-    public var didChangeBlock: (() -> Void)? {
-        didSet {
-            if let block = self.didChangeBlock {
-                self.updateNotificating(with: block)
-            } else {
-                self.notificationToken?.stop()
-                self.notificationToken = nil
-            }
-        }
+    var didChange: ((TodoItemsDatasourceChanges) -> Void)? {
+        didSet { self.notificationToken = self.updateNotificating() }
     }
+    
+    var didUpdate: (() -> Void)? {
+        didSet { self.notificationToken = self.updateNotificating() }
+    }
+    
     var needUseCompleted: Bool = true {
-        didSet {
-            self.didChangeBlock?()
-        }
+        didSet { self.notificationToken = self.updateNotificating() }
     }
     
     var filterString: String = "" {
-        didSet {
-            self.didChangeBlock?()
-        }
+        didSet { self.notificationToken = self.updateNotificating() }
     }
     
     init() {
@@ -87,13 +87,22 @@ struct TodoItemsDatasource {
         return NSPredicate(format: "TRUEPREDICATE")
     }
     
-    private mutating func updateNotificating(with block: @escaping () -> Void) {
-        self.notificationToken = self.allItems().addNotificationBlock { changes in
+    private func updateNotificating() -> NotificationToken {
+        return self.allItems().addNotificationBlock({ (changes: RealmCollectionChange) in
             switch changes {
-            case .initial: break
-            case .update, .error: block()
+            case .initial:
+                self.didUpdate?()
+            case .update(_, let deletions, let insertions, let modifications):
+                let results = modifications.map({ (index) -> (TodoItemAutoWrite, Int)? in
+                    guard let item:TodoItemAutoWrite = self.item(at: index) else { return nil }
+                    return (item, index)
+                }).flatMap { $0 }
+                let changes = TodoItemsDatasourceChanges(updatedItems: results, deletions: deletions, insertions: insertions)
+                self.didChange?(changes)
+            case .error:
+                break
             }
-        }
+        })
     }
     
     private func coreItem(at index: Int) -> CoreTodoItem? {
