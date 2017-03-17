@@ -11,6 +11,9 @@ import RealmSwift
 
 struct TodoItemsDatasource {
     private var notificationToken: NotificationToken?
+    private let realm = RealmManager().realm()
+    private let writer: PersistantWriter
+
     public var didChangeBlock: (() -> Void)? {
         didSet {
             if let block = self.didChangeBlock {
@@ -33,8 +36,9 @@ struct TodoItemsDatasource {
         }
     }
     
-    private let realm = RealmManager().realm()
-    private let writer = PersistantWriter()
+    init() {
+        self.writer = PersistantWriter(relmInstance: self.realm)
+    }
     
     func itemsCount() -> Int {
         return self.allItems().count

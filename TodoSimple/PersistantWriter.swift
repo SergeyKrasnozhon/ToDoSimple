@@ -11,7 +11,11 @@ import RealmSwift
 
 struct PersistantWriter {
     typealias ExecutionBlock = () -> Void
-    private let realm = RealmManager().realm()
+    private let realm: Realm
+    
+    init(relmInstance: Realm) {
+        self.realm = relmInstance
+    }
     
     // MARK: 
     func context(for object: CoreObject) -> ((ExecutionBlock) -> Void) {
