@@ -22,7 +22,6 @@
 		A55B4CAC1E7709D00080002A /* KeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55B4C9D1E7709D00080002A /* KeyboardHandler.swift */; };
 		A55B4CAD1E7709D00080002A /* ItemEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55B4C9E1E7709D00080002A /* ItemEditViewController.swift */; };
 		A55B4CAE1E7709D00080002A /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55B4C9F1E7709D00080002A /* UIViewExtensions.swift */; };
-		A55B4CAF1E7709D00080002A /* CellInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55B4CA01E7709D00080002A /* CellInfo.swift */; };
 		A55B4CB01E7709D00080002A /* DismissSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55B4CA11E7709D00080002A /* DismissSegue.swift */; };
 		A55B4CB11E7709D00080002A /* DeleteTodoItemAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55B4CA21E7709D00080002A /* DeleteTodoItemAction.swift */; };
 		A55B4CB21E7709D00080002A /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55B4CA31E7709D00080002A /* RealmManager.swift */; };
@@ -66,7 +65,6 @@
 		A55B4C9D1E7709D00080002A /* KeyboardHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardHandler.swift; sourceTree = "<group>"; };
 		A55B4C9E1E7709D00080002A /* ItemEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemEditViewController.swift; sourceTree = "<group>"; };
 		A55B4C9F1E7709D00080002A /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
-		A55B4CA01E7709D00080002A /* CellInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellInfo.swift; sourceTree = "<group>"; };
 		A55B4CA11E7709D00080002A /* DismissSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissSegue.swift; sourceTree = "<group>"; };
 		A55B4CA21E7709D00080002A /* DeleteTodoItemAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteTodoItemAction.swift; sourceTree = "<group>"; };
 		A55B4CA31E7709D00080002A /* RealmManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
@@ -175,7 +173,6 @@
 		A55B4CC91E770BD20080002A /* UI Common */ = {
 			isa = PBXGroup;
 			children = (
-				A55B4CA01E7709D00080002A /* CellInfo.swift */,
 				A55B4C9F1E7709D00080002A /* UIViewExtensions.swift */,
 				A55B4CA11E7709D00080002A /* DismissSegue.swift */,
 			);
@@ -286,7 +283,6 @@
 				A55B4CA61E7709D00080002A /* CoreTodoItem.swift in Sources */,
 				A55B4CB11E7709D00080002A /* DeleteTodoItemAction.swift in Sources */,
 				A55B4CAB1E7709D00080002A /* TableViewCells.swift in Sources */,
-				A55B4CAF1E7709D00080002A /* CellInfo.swift in Sources */,
 				A55B4CAE1E7709D00080002A /* UIViewExtensions.swift in Sources */,
 				A55B4CA81E7709D00080002A /* PersistantWriter.swift in Sources */,
 			);

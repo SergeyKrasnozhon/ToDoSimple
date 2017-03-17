@@ -13,7 +13,7 @@ class ItemsListViewController: ViewController, UITableViewDelegate, UITableViewD
     @IBOutlet private var completedFilterButton: UIButton!
     private var datasource = TodoItemsDatasource()
     private var keyboardHandler: KeyboardHandler?
-    private let cellInfo = CellInfo(identifier: "todoItemCell", height: 60)
+    private let cellInfo = (identifier: "todoItemCell", height: CGFloat(60))
     private var needShowCompleted: Bool {
         get {
             return UserDefaults.standard.bool(forKey: "ts_needShowCompleted")
