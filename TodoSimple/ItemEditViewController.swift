@@ -30,8 +30,9 @@ class ItemEditViewController: ViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         self.keyboardHandler = KeyboardHandler(rootView: self.view) { [weak self] in
-            let additionalInset: CGFloat = ($0 == 0) ? 0 : 20
-            self?.tableView.contentInset = UIEdgeInsets(top: -($0 + additionalInset), left: 0, bottom: 0, right: 0)
+            let additionalOffset: CGFloat = ($0 == 0) ? 0 : 20
+            let offset = ($0 + additionalOffset)
+            self?.tableView.contentOffset.y += offset
         }
     }
     
@@ -46,7 +47,7 @@ class ItemEditViewController: ViewController, UITableViewDelegate, UITableViewDa
     }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        self.view.endEditing(true)
+        self.view.ts_currentFirstResponder()?.resignFirstResponder()
     }
     
     // MARK: IB Actions

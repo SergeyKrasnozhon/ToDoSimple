@@ -41,7 +41,7 @@ class ItemListCell: UITableViewCell, UITextFieldDelegate {
     
     // MARK: UITextFieldDelegate
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.endEditing(true)
+        self.nameTextField.resignFirstResponder()
         return true
     }
     
