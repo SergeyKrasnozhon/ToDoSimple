@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="MZG-H2-Lny">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -124,7 +124,7 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="PDv-Jg-7zn" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="52w-UF-YKd"/>
+                            <constraint firstItem="PDv-Jg-7zn" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="8ZD-iJ-weD"/>
                             <constraint firstItem="Jdw-Mm-68Q" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="I4x-kf-Ye3"/>
                             <constraint firstAttribute="trailing" secondItem="fSS-l6-Lbd" secondAttribute="trailing" id="MKt-Py-EJR"/>
                             <constraint firstItem="fSS-l6-Lbd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="SKH-Le-rOb"/>
@@ -140,6 +140,7 @@
                             <constraint firstItem="PhS-Z5-5BI" firstAttribute="centerY" secondItem="PDv-Jg-7zn" secondAttribute="centerY" id="yE7-mS-8AT"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="AQt-RT-adg"/>
                     <connections>
                         <outlet property="completedFilterButton" destination="fSS-l6-Lbd" id="Ji2-Jo-ykT"/>
                         <outlet property="searchDisplayController" destination="UN6-sb-3bp" id="Occ-Gl-QRG"/>
@@ -157,7 +158,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="32.799999999999997" y="66.11694152923539"/>
+            <point key="canvasLocation" x="972" y="66.11694152923539"/>
         </scene>
         <!--Item Edit View Controller-->
         <scene sceneID="eh0-dS-gAa">
@@ -180,6 +181,7 @@
                                 <state key="normal" title="Done"/>
                                 <connections>
                                     <action selector="doneTapped:" destination="Thr-jr-4RV" eventType="touchUpInside" id="3ZE-ru-RbE"/>
+                                    <segue destination="E4a-lW-7ac" kind="unwind" customClass="UniversalDismissSegue" customModule="TodoSimple" customModuleProvider="target" unwindAction="unwindAutomaticallyWithSender:" id="SRu-7Q-SJy"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vp9-58-Ssd">
@@ -192,7 +194,7 @@
                                     <color key="titleColor" red="0.94154804940000003" green="0.203514734" blue="0.064839920270000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="cancelTapped:" destination="Thr-jr-4RV" eventType="touchUpInside" id="vEo-JZ-Frs"/>
+                                    <segue destination="E4a-lW-7ac" kind="unwind" customClass="UniversalDismissSegue" customModule="TodoSimple" customModuleProvider="target" unwindAction="unwindAutomaticallyWithSender:" id="NXu-HT-d6l"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="57" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="cRG-sm-Y5n">
@@ -343,8 +345,29 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j0V-MP-VWO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="E4a-lW-7ac" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1040.8" y="61.619190404797607"/>
+            <point key="canvasLocation" x="1980" y="61.619190404797607"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="EBZ-56-GbL">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="MZG-H2-Lny" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ONa-zh-ONk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="2C2-B6-pN5"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IOn-JS-Lme" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="32.799999999999997" y="66.11694152923539"/>
         </scene>
     </scenes>
 </document>

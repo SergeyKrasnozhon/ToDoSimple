@@ -22,4 +22,14 @@ class ViewController: UIViewController {
         let setupBlock: PrepareBlock? = self.seguePrepareblocks[identifier]
         setupBlock?(segue)
     }
+    
+    override func canPerformUnwindSegueAction(_ action: Selector, from fromViewController: UIViewController,
+                                              withSender sender: Any) -> Bool {
+        return true
+    }
+    
+    @IBAction func unwindAutomatically(sender: UIStoryboardSegue)
+    {
+        //Needed to be able to connect from IB
+    }
 }
