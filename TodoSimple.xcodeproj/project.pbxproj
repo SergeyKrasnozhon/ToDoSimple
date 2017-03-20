@@ -134,10 +134,8 @@
 		A55B4CC51E770B5C0080002A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				A56202661E7FF4D50007EC66 /* ItemsList */,
 				A5E7B6B21E7C060D006A8C70 /* ItemEdit */,
-				A55B4C951E7709D00080002A /* TodoItemsDatasource.swift */,
-				A55B4CC31E770A7D0080002A /* ViewController.swift */,
-				A55B4C961E7709D00080002A /* ItemsListViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -175,10 +173,20 @@
 		A55B4CC91E770BD20080002A /* UI Common */ = {
 			isa = PBXGroup;
 			children = (
+				A55B4CC31E770A7D0080002A /* ViewController.swift */,
 				A55B4C9F1E7709D00080002A /* UIViewExtensions.swift */,
 				A56202641E7FEA8C0007EC66 /* UniversalDismissSegue.swift */,
 			);
 			name = "UI Common";
+			sourceTree = "<group>";
+		};
+		A56202661E7FF4D50007EC66 /* ItemsList */ = {
+			isa = PBXGroup;
+			children = (
+				A55B4C951E7709D00080002A /* TodoItemsDatasource.swift */,
+				A55B4C961E7709D00080002A /* ItemsListViewController.swift */,
+			);
+			name = ItemsList;
 			sourceTree = "<group>";
 		};
 		A5E7B6B21E7C060D006A8C70 /* ItemEdit */ = {
