@@ -22,7 +22,6 @@
 		A55B4CAC1E7709D00080002A /* KeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55B4C9D1E7709D00080002A /* KeyboardHandler.swift */; };
 		A55B4CAD1E7709D00080002A /* ItemEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55B4C9E1E7709D00080002A /* ItemEditViewController.swift */; };
 		A55B4CAE1E7709D00080002A /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55B4C9F1E7709D00080002A /* UIViewExtensions.swift */; };
-		A55B4CB01E7709D00080002A /* DismissSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55B4CA11E7709D00080002A /* DismissSegue.swift */; };
 		A55B4CB11E7709D00080002A /* DeleteTodoItemAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55B4CA21E7709D00080002A /* DeleteTodoItemAction.swift */; };
 		A55B4CB21E7709D00080002A /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55B4CA31E7709D00080002A /* RealmManager.swift */; };
 		A55B4CBD1E770A250080002A /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A55B4CB41E770A030080002A /* Realm.framework */; };
@@ -66,7 +65,6 @@
 		A55B4C9D1E7709D00080002A /* KeyboardHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardHandler.swift; sourceTree = "<group>"; };
 		A55B4C9E1E7709D00080002A /* ItemEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemEditViewController.swift; sourceTree = "<group>"; };
 		A55B4C9F1E7709D00080002A /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
-		A55B4CA11E7709D00080002A /* DismissSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissSegue.swift; sourceTree = "<group>"; };
 		A55B4CA21E7709D00080002A /* DeleteTodoItemAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteTodoItemAction.swift; sourceTree = "<group>"; };
 		A55B4CA31E7709D00080002A /* RealmManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		A55B4CB41E770A030080002A /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
@@ -176,7 +174,6 @@
 			isa = PBXGroup;
 			children = (
 				A55B4C9F1E7709D00080002A /* UIViewExtensions.swift */,
-				A55B4CA11E7709D00080002A /* DismissSegue.swift */,
 			);
 			name = "UI Common";
 			sourceTree = "<group>";
@@ -282,7 +279,6 @@
 			files = (
 				A55B4CAA1E7709D00080002A /* ItemListCell.swift in Sources */,
 				A55B4CA91E7709D00080002A /* TodoItem.swift in Sources */,
-				A55B4CB01E7709D00080002A /* DismissSegue.swift in Sources */,
 				A55B4CAD1E7709D00080002A /* ItemEditViewController.swift in Sources */,
 				A55B4CA71E7709D00080002A /* Logger.swift in Sources */,
 				A55B4C841E77092A0080002A /* AppDelegate.swift in Sources */,

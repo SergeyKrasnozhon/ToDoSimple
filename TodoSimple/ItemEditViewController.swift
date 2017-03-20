@@ -48,9 +48,18 @@ class ItemEditViewController: ViewController, UITableViewDelegate, UITableViewDa
     @IBAction func doneTapped(_ sender: UIButton) {
         self.prepareResultItem()
         self.todoItem?.persist()
+        self.dismiss()
+    }
+    
+    @IBAction func cancelTapped(_ sender: UIButton) {
+        self.dismiss()
     }
     
     // MARK: Service
+    private func dismiss() {
+        self.presentingViewController?.dismiss(animated: true, completion: nil)
+    }
+    
     private func createCellsConficurator() -> CellsConfigureBlock {
         return {
             let (nameCell, dateCell, priorityCell, notesCell) = $0
