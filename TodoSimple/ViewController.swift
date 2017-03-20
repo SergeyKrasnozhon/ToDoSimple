@@ -25,6 +25,9 @@ class ViewController: UIViewController {
     
     override func canPerformUnwindSegueAction(_ action: Selector, from fromViewController: UIViewController,
                                               withSender sender: Any) -> Bool {
+        if fromViewController === self {
+            return false // Just to be sure that we will not have segue with equal source and destination VC.
+        }
         return true
     }
     
