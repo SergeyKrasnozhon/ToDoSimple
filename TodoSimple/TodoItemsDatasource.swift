@@ -21,19 +21,19 @@ struct TodoItemsDatasource {
     private let writer: PersistantWriter
 
     var didChange: ((TodoItemsDatasourceChanges) -> Void)? {
-        didSet { self.notificationToken = self.updateNotificating() }
+        didSet { self.updateNotificating() }
     }
     
     var didUpdate: (() -> Void)? {
-        didSet { self.notificationToken = self.updateNotificating() }
+        didSet { self.updateNotificating() }
     }
     
     var needUseCompleted: Bool = true {
-        didSet { self.notificationToken = self.updateNotificating() }
+        didSet { self.updateNotificating() }
     }
     
     var filterString: String = "" {
-        didSet { self.notificationToken = self.updateNotificating() }
+        didSet { self.updateNotificating() }
     }
     
     init() {
@@ -87,7 +87,7 @@ struct TodoItemsDatasource {
         return NSPredicate(format: "TRUEPREDICATE")
     }
     
-    private func updateNotificating() -> NotificationToken {
+    private func createNotification() -> NotificationToken {
         return self.allItems().addNotificationBlock({ (changes: RealmCollectionChange) in
             switch changes {
             case .initial:
@@ -103,6 +103,11 @@ struct TodoItemsDatasource {
                 break
             }
         })
+    }
+    
+    private mutating func updateNotificating() {
+        self.notificationToken?.stop()
+        self.notificationToken = self.createNotification()
     }
     
     private func coreItem(at index: Int) -> CoreTodoItem? {
