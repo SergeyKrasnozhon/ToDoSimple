@@ -61,9 +61,9 @@ struct TodoItemsDatasource {
     //MARK: Service
     private func sortDescriptors() -> [SortDescriptor] {
         return [
-            SortDescriptor(keyPath: CoreTodoItem.PropertyKey.completed, ascending: true),
-            SortDescriptor(keyPath: CoreTodoItem.PropertyKey.priority, ascending: false),
-            SortDescriptor(keyPath: CoreTodoItem.PropertyKey.date, ascending: true)
+            SortDescriptor(keyPath: #keyPath(CoreTodoItem.completed), ascending: true),
+            SortDescriptor(keyPath: #keyPath(CoreTodoItem.priority), ascending: false),
+            SortDescriptor(keyPath: #keyPath(CoreTodoItem.date), ascending: true)
         ]
     }
     
@@ -75,14 +75,14 @@ struct TodoItemsDatasource {
     
     private func completionPredicat() -> NSPredicate {
         if !self.needUseCompleted {
-            return NSPredicate(format: "%K = %@", CoreTodoItem.PropertyKey.completed, false as CVarArg)
+            return NSPredicate(format: "%K = %@", #keyPath(CoreTodoItem.completed), false as CVarArg)
         }
         return NSPredicate(format: "TRUEPREDICATE")
     }
     
     private func namePredicate() -> NSPredicate {
         if !self.filterString.isEmpty {
-            return NSPredicate(format: "%K CONTAINS[c] %@", CoreTodoItem.PropertyKey.name, self.filterString)
+            return NSPredicate(format: "%K CONTAINS[c] %@", #keyPath(CoreTodoItem.name), self.filterString)
         }
         return NSPredicate(format: "TRUEPREDICATE")
     }

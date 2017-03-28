@@ -14,7 +14,7 @@ struct DeleteTodoItemAction {
     
     func execute(with item: TodoItemCommon) {
         let allItems = self.realm.objects(CoreTodoItem.self)
-        let itemsToRemove = allItems.filter("%K = %@", CoreTodoItem.PropertyKey.identifier, item.identifier)
+        let itemsToRemove = allItems.filter("%K = %@", #keyPath(CoreTodoItem.identifier), item.identifier)
         do {
             try self.realm.write {
                 self.realm.delete(itemsToRemove)
